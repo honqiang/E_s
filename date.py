@@ -115,7 +115,7 @@ Rs = np.zeros((N, N))  # 战场热点值矩阵
 for i in range(0, N-1):
     for j in range(0, N-1):
         for dot_i in dot:
-            ii = 0
+            ii = 0     #有疑问
             distance = get_distanc(web_lat[i], web_lon[j], dot_i[0], dot_i[1])
             if distance < h:
                 aa = DKE(h, distance, dot_i[2]/dot_wd)
