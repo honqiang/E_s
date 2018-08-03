@@ -66,7 +66,7 @@ a = get_distanc(b[0], b[1], c[0], c[1])
 
 
 # 网格划分 输入需要划分的地图对角线坐标
-N = 1600
+N = 1200
 web_begin_lat, web_begin_lon = (24.038639, 97.835673)  # 左上
 web_end_lat, web_end_lon = (23.985706, 97.921106)      # 右下
 
@@ -110,19 +110,16 @@ dot_wd = dot1[2]+dot2[2]+dot3[2]+dot4[2]+dot5[2] + \
     dot6[2]+dot7[2]+dot8[2]+dot9[2]+dot10[2]
 
 # 划分网格
-h = 3000
+h = 1500
 Rs = np.zeros((N, N))  # 战场热点值矩阵
 for i in range(0, N-1):
     for j in range(0, N-1):
         for dot_i in dot:
-            ii = 0     #有疑问
             distance = get_distanc(web_lat[i], web_lon[j], dot_i[0], dot_i[1])
             if distance < h:
                 aa = DKE(h, distance, dot_i[2]/dot_wd)
-            else:
-                aa = 0
-            ii = ii+1
-            Rs[i][j] = Rs[i][j]+aa
+                Rs[i][j] = Rs[i][j]+aa
+
 Rs_time = time.time()
 print(f"态势信息用时：{Rs_time-web_date_time}s")
 # 矩阵规范化
