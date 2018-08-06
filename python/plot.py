@@ -11,7 +11,6 @@ a = np.loadtxt('e:/课题/python/Rs.txt')
 # get colormap
 ncolors = 256
 color_array = plt.get_cmap('gist_rainbow_r')(range(ncolors))
-
 # change alpha values
 color_array[:,-1] = np.linspace(0.0,1.0,ncolors)
 

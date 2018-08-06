@@ -59,10 +59,10 @@ def Normalize(data, max):
 # print(b)
 
 
-b, c = (24.173844, 97.773233), (24.175319, 97.776274)
-a = get_distanc(b[0], b[1], c[0], c[1])
-# print("Result", a)
-# print("Should be", 0.349)
+# b, c = (24.173844, 97.773233), (24.175319, 97.776274)
+# a = get_distanc(b[0], b[1], c[0], c[1])
+# # print("Result", a)
+# # print("Should be", 0.349)
 
 
 # 网格划分 输入需要划分的地图对角线坐标
@@ -117,7 +117,7 @@ for i in range(0, N-1):
         for dot_i in dot:
             distance = get_distanc(web_lat[i], web_lon[j], dot_i[0], dot_i[1])
             if distance < h:
-                aa = DKE(h, distance, dot_i[2]/dot_wd)
+                aa = DKE(h, distance, dot_i[2])
                 Rs[i][j] = Rs[i][j]+aa
 
 Rs_time = time.time()
