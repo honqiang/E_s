@@ -55,14 +55,6 @@ def Normalize(data, max):
     "矩阵规范化"
     nor = data/max
     return nor
-# b = DKE(8, 1, 1)
-# print(b)
-
-
-# b, c = (24.173844, 97.773233), (24.175319, 97.776274)
-# a = get_distanc(b[0], b[1], c[0], c[1])
-# # print("Result", a)
-# # print("Should be", 0.349)
 
 
 # 网格划分 输入需要划分的地图对角线坐标
@@ -106,8 +98,6 @@ dot10 = (24.007121, 97.912703, 8)
 
 dot = [dot1, dot2, dot3, dot4, dot5, dot6, dot7, dot8, dot9, dot10]
 dot_len = len(dot)
-dot_wd = dot1[2]+dot2[2]+dot3[2]+dot4[2]+dot5[2] + \
-    dot6[2]+dot7[2]+dot8[2]+dot9[2]+dot10[2]
 
 # 划分网格
 h = 1500
