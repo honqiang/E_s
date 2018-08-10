@@ -13,10 +13,9 @@ import time
 
 start_time = time.time()
 
-
 def get_distanc(lat1, lon1, lat2, lon2):
     "输入两个坐标WG84，计算两点间的地表距离m"
-    R = 6373.0
+    R = 6373.0   #地球半径
     lat_1 = radians(lat1)
     lon_1 = radians(lon1)
     lat_2 = radians(lat2)
@@ -63,9 +62,6 @@ web_begin_lat, web_begin_lon = (24.038639, 97.835673)  # 左上
 web_end_lat, web_end_lon = (23.985706, 97.921106)      # 右下
 
 # 将起始坐标转换为网格坐标
-web_dlat = abs(web_end_lat-web_begin_lat)/N
-web_dlon = abs(web_end_lon-web_begin_lon)/N
-
 web_lat_max = max(web_begin_lat, web_end_lat)
 web_lat_min = min(web_begin_lat, web_end_lat)
 web_lat = np.linspace(web_lat_max, web_lat_min, N, endpoint=True)

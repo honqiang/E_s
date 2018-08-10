@@ -27,7 +27,4 @@ plt.colorbar(mappable=h)
 plt.show()
 
 
-path=os.getcwd()
-a = np.loadtxt('e:/课题/python/Rs.txt')
-
 
