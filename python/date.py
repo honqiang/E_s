@@ -65,8 +65,7 @@ web_end_lat, web_end_lon = (23.985706, 97.921106)      # 右下
 web_lat_max = max(web_begin_lat, web_end_lat)
 web_lat_min = min(web_begin_lat, web_end_lat)
 web_lat = np.linspace(web_lat_max, web_lat_min, N, endpoint=True)
-os.remove('e:/课题/python/web_lat.txt')
-
+os.remove('/web_lat.txt')
 
 web_lon_max = max(web_begin_lon, web_end_lon)
 web_lon_min = min(web_begin_lon, web_end_lon)
@@ -76,9 +75,6 @@ np.savetxt('e:/课题/python/web_lat.txt', web_lat)
 np.savetxt('e:/课题/python/web_lon.txt', web_lon)
 web_date_time = time.time()
 print(f"栅格化网络用时:{web_date_time-start_time}s")
-
-# print(web_lat[0], web_lon[399])
-
 
 # 测试用的点
 dot1 = (23.987080, 97.885402, 8.0)
