@@ -71,8 +71,8 @@ web_lon_min = min(web_begin_lon, web_end_lon)
 web_lon = np.linspace(web_lon_min, web_lon_max, N, endpoint=True)
 
 with open('e:/课题/python/web_lat.txt', 'w') as f1, open('e:/课题/python/web_lon.txt', 'w') as f2:
-    np.savetxt('e:/课题/python/web_lat.txt', web_lat)
-    np.savetxt('e:/课题/python/web_lon.txt', web_lon)
+    np.savetxt('e:/课题/result/web_lat.txt', web_lat)
+    np.savetxt('e:/课题/result/web_lon.txt', web_lon)
     web_date_time = time.time()
     print(f"栅格化网络用时:{web_date_time-start_time}s")
 
@@ -86,7 +86,7 @@ dot6 = (24.037641, 97.908323, 8)
 dot7 = (24.004662, 97.909453, 8)
 dot8 = (24.027555, 97.910471, 8)
 dot9 = (24.025919, 97.917749, 8)
-dot10 = (24.007121, 97.912703, 8)
+dot10 = (24.007121, 97.912703, 80)
 
 dot = [dot1, dot2, dot3, dot4, dot5, dot6, dot7, dot8, dot9, dot10]
 dot_len = len(dot)
@@ -107,7 +107,6 @@ print(f"态势信息用时：{Rs_time-web_date_time}s")
 # 矩阵规范化
 a = Rs
 mx = a.max()
-f = open('e:/课题/python/gis.txt', 'a')
 for i in range(0, N-1):
     for j in range(0, N-1):
         Rs[i][j] = Normalize(Rs[i][j], mx)
@@ -115,8 +114,8 @@ nor_time = time.time()
 print(f"态势信息规范化用时：{nor_time-Rs_time} second")
 
 #保存数据为txt
-with open('e:/课题/python/Rs.txt', 'w') as f:
-    np.savetxt('e:/课题/python/Rs.txt', Rs)
+with open('e:/课题/result/Rs.txt', 'w'):
+    np.savetxt('e:/课题/result/Rs.txt', Rs)
     end_time = time.time()
     print(f"保存数据用时：{end_time-nor_time}")
 

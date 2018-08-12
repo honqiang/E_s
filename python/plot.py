@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 
-a = np.loadtxt('e:/课题/python/Rs.txt')
+a = np.loadtxt('e:/课题/result/Rs.txt')
 # get colormap
 ncolors = 256
 color_array = plt.get_cmap('gist_rainbow_r')(range(ncolors))
