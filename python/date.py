@@ -111,12 +111,12 @@ for i in range(0, N-1):
     for j in range(0, N-1):
         Rs[i][j] = Normalize(Rs[i][j], mx)
 nor_time = time.time()
-print(f"态势信息规范化用时：{nor_time-Rs_time} second")
+print(f"态势信息规范化用时：{nor_time-Rs_time}s")
 
 #保存数据为txt
 with open('e:/课题/result/Rs.txt', 'w'):
     np.savetxt('e:/课题/result/Rs.txt', Rs)
     end_time = time.time()
-    print(f"保存数据用时：{end_time-nor_time}")
+    print(f"保存数据用时：{end_time-nor_time}s")
 
 print("data  all done")
