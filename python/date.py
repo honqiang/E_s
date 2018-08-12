@@ -13,9 +13,10 @@ import time
 
 start_time = time.time()
 
+
 def get_distanc(lat1, lon1, lat2, lon2):
     "输入两个坐标WG84，计算两点间的地表距离m"
-    R = 6373.0   #地球半径
+    R = 6373.0  # 地球半径
     lat_1 = radians(lat1)
     lon_1 = radians(lon1)
     lat_2 = radians(lat2)
@@ -65,16 +66,15 @@ web_end_lat, web_end_lon = (23.985706, 97.921106)      # 右下
 web_lat_max = max(web_begin_lat, web_end_lat)
 web_lat_min = min(web_begin_lat, web_end_lat)
 web_lat = np.linspace(web_lat_max, web_lat_min, N, endpoint=True)
-os.remove('/web_lat.txt')
-
 web_lon_max = max(web_begin_lon, web_end_lon)
 web_lon_min = min(web_begin_lon, web_end_lon)
 web_lon = np.linspace(web_lon_min, web_lon_max, N, endpoint=True)
-os.remove('e:/课题/python/web_lon.txt')
-np.savetxt('e:/课题/python/web_lat.txt', web_lat)
-np.savetxt('e:/课题/python/web_lon.txt', web_lon)
-web_date_time = time.time()
-print(f"栅格化网络用时:{web_date_time-start_time}s")
+
+with open('e:/课题/python/web_lat.txt', 'w') as f1, open('e:/课题/python/web_lon.txt', 'w') as f2:
+    np.savetxt('e:/课题/python/web_lat.txt', web_lat)
+    np.savetxt('e:/课题/python/web_lon.txt', web_lon)
+    web_date_time = time.time()
+    print(f"栅格化网络用时:{web_date_time-start_time}s")
 
 # 测试用的点
 dot1 = (23.987080, 97.885402, 8.0)
@@ -101,9 +101,9 @@ for i in range(0, N-1):
             if distance < h:
                 aa = DKE(h, distance, dot_i[2])
                 Rs[i][j] = Rs[i][j]+aa
-
 Rs_time = time.time()
 print(f"态势信息用时：{Rs_time-web_date_time}s")
+
 # 矩阵规范化
 a = Rs
 mx = a.max()
@@ -111,13 +111,13 @@ f = open('e:/课题/python/gis.txt', 'a')
 for i in range(0, N-1):
     for j in range(0, N-1):
         Rs[i][j] = Normalize(Rs[i][j], mx)
-
 nor_time = time.time()
 print(f"态势信息规范化用时：{nor_time-Rs_time} second")
 
-path = os.getcwd()
-os.remove('e:/课题/python/Rs.txt')
-np.savetxt('e:/课题/python/Rs.txt', Rs)
-end_time = time.time()
-print("data  done")
-print(f"保存数据用时：{end_time-nor_time}")
+#保存数据为txt
+with open('e:/课题/python/Rs.txt', 'w') as f:
+    np.savetxt('e:/课题/python/Rs.txt', Rs)
+    end_time = time.time()
+    print(f"保存数据用时：{end_time-nor_time}")
+
+print("data  all done")

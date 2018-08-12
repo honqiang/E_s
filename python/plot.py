@@ -6,7 +6,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 
-path=os.getcwd()
 a = np.loadtxt('e:/课题/python/Rs.txt')
 # get colormap
 ncolors = 256
