@@ -1,4 +1,4 @@
-# 中缅边境电磁态势分析系统
+# xxxx电磁态势分析系统
 # hongqiang.lee@gmail.com
 # 2018年7月28日
 # google map WG-84
