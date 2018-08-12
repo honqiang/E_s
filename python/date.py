@@ -113,7 +113,7 @@ for i in range(0, N-1):
 nor_time = time.time()
 print(f"态势信息规范化用时：{nor_time-Rs_time}s")
 
-#保存数据为txt
+# 保存数据为txt
 with open('e:/课题/result/Rs.txt', 'w'):
     np.savetxt('e:/课题/result/Rs.txt', Rs)
     end_time = time.time()
