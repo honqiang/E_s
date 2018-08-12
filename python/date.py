@@ -70,7 +70,7 @@ web_lon_max = max(web_begin_lon, web_end_lon)
 web_lon_min = min(web_begin_lon, web_end_lon)
 web_lon = np.linspace(web_lon_min, web_lon_max, N, endpoint=True)
 
-with open('e:/课题/python/web_lat.txt', 'w') as f1, open('e:/课题/python/web_lon.txt', 'w') as f2:
+with open('e:/课题/result/web_lat.txt', 'w') as f1, open('e:/课题/result/web_lon.txt', 'w') as f2:
     np.savetxt('e:/课题/result/web_lat.txt', web_lat)
     np.savetxt('e:/课题/result/web_lon.txt', web_lon)
     web_date_time = time.time()
@@ -86,7 +86,7 @@ dot6 = (24.037641, 97.908323, 8)
 dot7 = (24.004662, 97.909453, 8)
 dot8 = (24.027555, 97.910471, 8)
 dot9 = (24.025919, 97.917749, 8)
-dot10 = (24.007121, 97.912703, 80)
+dot10 = (24.007121, 97.912703, 8)
 
 dot = [dot1, dot2, dot3, dot4, dot5, dot6, dot7, dot8, dot9, dot10]
 dot_len = len(dot)
