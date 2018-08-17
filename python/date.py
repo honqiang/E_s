@@ -10,10 +10,10 @@ import numpy as np
 import math
 import os
 import time
-
+import numba
 start_time = time.time()
 
-
+@numba.jit
 def get_distanc(lat1, lon1, lat2, lon2):
     "输入两个坐标WG84，计算两点间的地表距离m"
     R = 6373.0  # 地球半径
@@ -58,7 +58,7 @@ def Normalize(data, max):
 
 
 # 网格划分 输入需要划分的地图对角线坐标
-N = 1200
+N = 1300
 web_begin_lat, web_begin_lon = (24.038639, 97.835673)  # 左上
 web_end_lat, web_end_lon = (23.985706, 97.921106)      # 右下
 
@@ -77,18 +77,18 @@ with open('e:/课题/result/web_lat.txt', 'w') as f1, open('e:/课题/result/web
     print(f"栅格化网络用时:{web_date_time-start_time}s")
 
 # 测试用的点
-dot1 = (23.987080, 97.885402, 8.0)
-dot2 = (24.010533, 97.871553, 8.0)
-dot3 = (24.028241, 97.867378, 8.2)
-dot4 = (24.005506, 97.853046, 6)
-dot5 = (24.030922, 97.871839, 8)
-dot6 = (24.037641, 97.908323, 8)
-dot7 = (24.004662, 97.909453, 8)
-dot8 = (24.027555, 97.910471, 8)
-dot9 = (24.025919, 97.917749, 8)
-dot10 = (24.007121, 97.912703, 8)
+dot1 = [23.987080, 97.885402, 8.0]
+dot2 = [24.010533, 97.871553, 8.0]
+dot3 = [24.028241, 97.867378, 8.2]
+dot4 = [24.005506, 97.853046, 6]
+dot5 = [24.030922, 97.871839, 8]
+dot6 = [24.037641, 97.908323, 1]
+dot7 = [24.004662, 97.909453, 8]
+dot8 = [24.027555, 97.910471, 8]
+dot9 = [24.025919, 97.917749, 1]
+dot10 = [24.007121, 97.912703, 8]
 
-dot = [dot1, dot2, dot3, dot4, dot5, dot6, dot7, dot8, dot9, dot10]
+dot =[dot1, dot2, dot3, dot4, dot5, dot6, dot7, dot8, dot9, dot10]
 dot_len = len(dot)
 
 # 划分网格
@@ -103,6 +103,7 @@ for i in range(0, N-1):
                 Rs[i][j] = Rs[i][j]+aa
 Rs_time = time.time()
 print(f"态势信息用时：{Rs_time-web_date_time}s")
+
 
 # 矩阵规范化
 a = Rs

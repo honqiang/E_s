@@ -1,22 +1,21 @@
+import time
 import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.colors import LinearSegmentedColormap
 
-# get colormap
-ncolors = 256
-color_array = plt.get_cmap('gist_rainbow_r')(range(ncolors))
+def diedai(j):
+    j=j+1
+    return j
 
-# change alpha values
-color_array[:,-1] = np.linspace(0.0,1.0,ncolors)
-
-# create a colormap object
-map_object = LinearSegmentedColormap.from_list(name='rainbow_alpha',colors=color_array)
-
-# register this new colormap with matplotlib
-plt.register_cmap(cmap=map_object)
-
-# show some example data
-f,ax = plt.subplots()
-h = ax.imshow(np.random.rand(100,100),cmap='rainbow_alpha')
-plt.colorbar(mappable=h)
-plt.show()
+N=1200
+t = time.time()
+Rs = np.zeros((N, N))  # 战场热点值矩阵
+for i in range(0, N-1):
+    for j in range(0, N-1):
+        for dot_i in range(1,8):
+            # distance = get_distanc(web_lat[i], web_lon[j], dot_i[0], dot_i[1])
+            distance=100
+            # if distance < h:
+                # aa = DKE(h, distance, dot_i[2])
+            distance=distance+1
+           
+Rs_time = time.time()
+print(f"态势信息用时：{Rs_time-t}s")
