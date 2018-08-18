@@ -12,3 +12,8 @@ result/Figure_1.png
 python/google-map-date.py
 python/test.py
 python/pypy-test.py
+result/Result.png
+result/map.png
+record.md
+python/date.pyx
+python/image.py
